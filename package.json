@@ -1,7 +1,7 @@
 {
   "name": "hubot-nowplaying",
   "description": "Queries music services to report what is playing at the moment (and recently)",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Andy Soell <andy@teamsoell.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, music, radio paradise",
