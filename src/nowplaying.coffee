@@ -10,7 +10,7 @@
 # Commands:
 #   hubot what's playing - Find out what's playing on Radio Paradise
 #   hubot what played before - Find out what played before the current track on Radio Paradise
-
+xml2js = require "xml2js
 module.exports = (robot) ->
   robot.respond /what.*(playing|on the radio|on radio)/i, (msg) ->
     query = encodeURIComponent(msg.match[1])
