@@ -25,7 +25,7 @@
     "grunt-mocha-test": "~0.7.0",
     "grunt-release": "~0.6.0",
     "matchdep": "~0.1.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
     "xml2js": "0.1.14"
   },
   "main": "index.coffee",
