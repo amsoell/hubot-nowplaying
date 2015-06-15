@@ -12,7 +12,7 @@
 #   hubot what played before - Find out what played before the current track on Radio Paradise
 xml2js = require "xml2js"
 module.exports = (robot) ->
-  robot.respond /what.*(playing|on the radio|on radio)/i, (msg) ->
+  robot.hear /^what.*(playing|on the radio|on radio)/i, (msg) ->
     query = encodeURIComponent(msg.match[1])
     msg.http("http://radioparadise.com/xml/now.xml")
       .get() (err, res, body) ->
@@ -26,7 +26,7 @@ module.exports = (robot) ->
                 song = result.song
               msg.send "*#{song.title}* by _#{song.artist}_ is currently playing on Radio Paradise: #{song.coverart}"
 
-  robot.respond /what (played|was) before/i, (msg) ->
+  robot.hear /what (played|was) before/i, (msg) ->
     query = encodeURIComponent(msg.match[1])
     msg.http("http://radioparadise.com/xml/now_4.xml")
       .get() (err, res, body) ->
