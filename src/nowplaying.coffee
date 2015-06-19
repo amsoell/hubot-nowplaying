@@ -9,7 +9,10 @@
 #
 # Commands:
 #   what's playing - Find out what's playing on Radio Paradise
+#   hubot what's playing
 #   what played before - Find out what played before the current track on Radio Paradise
+#   hubot what played before
+
 xml2js = require "xml2js"
 
 nowPlaying = (msg) ->
@@ -24,7 +27,7 @@ nowPlaying = (msg) ->
               song = result.song[0]
             else
               song = result.song
-            msg.send "*#{song.title}* by _#{song.artist}_ is currently playing on Radio Paradise: #{song.coverart}"
+            msg.send "**#{song.title}** by _#{song.artist}_ is currently playing on Radio Paradise: #{song.coverart}"
 
 thenPlaying = (msg) ->
   query = encodeURIComponent(msg.match[1])
@@ -37,15 +40,18 @@ thenPlaying = (msg) ->
           if result.playlist
             for song in result.playlist.song
               if i++>0
-                msg.send "*#{song.title}* by _#{song.artist}_"
+                msg.send "**#{song.title}** by _#{song.artist}_"
 
 
 module.exports = (robot) ->
   robot.hear /^what.*(playing|on the radio|on radio)/i, (msg) ->
     nowPlaying(msg)
-  robot.respond /^what.*(playing|on the radio|on radio)/i, (msg) ->
+
+  robot.respond /what.*(playing|on the radio|on radio)/i, (msg) ->
     nowPlaying(msg)
-  robot.hear /what (played|was) before/i, (msg) ->
+
+  robot.hear /^what (played|was) before/i, (msg) ->
     thenPlaying(msg)
+
   robot.respond /what (played|was) before/i, (msg) ->
     thenPlaying(msg)
