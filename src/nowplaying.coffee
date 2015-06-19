@@ -27,7 +27,7 @@ nowPlaying = (msg) ->
               song = result.song[0]
             else
               song = result.song
-            msg.send "**#{song.title}** by _#{song.artist}_ is currently playing on Radio Paradise: #{song.coverart}"
+            msg.send "*#{song.title}* by _#{song.artist}_ is currently playing on Radio Paradise: #{song.coverart}"
 
 thenPlaying = (msg) ->
   query = encodeURIComponent(msg.match[1])
@@ -40,7 +40,7 @@ thenPlaying = (msg) ->
           if result.playlist
             for song in result.playlist.song
               if i++>0
-                msg.send "**#{song.title}** by _#{song.artist}_"
+                msg.send "*#{song.title}* by _#{song.artist}_"
 
 
 module.exports = (robot) ->
